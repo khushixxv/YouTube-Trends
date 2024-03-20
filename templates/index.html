@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-color: #f0f2f5; /* Sets a light background color for the entire page */
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Updates the font for the whole page */
+    }
+
+    h1 {
+        color: red; /* Updates the main title color to a deep pink for more vibrance */
+        font-family: 'Arial', sans-serif; /* Ensures consistency in typography */
+        text-align: center; /* Centers the title */
+        margin-top: 2rem; /* Adds space at the top of the title */
+    }
+
+    h5 {
+        color: #606770; /* Updates the color to a softer gray */
+        font-family: 'Times New Roman', serif; /* Maintains the font style */
+        text-align: center; /* Centers the names */
+        margin: 10px 0; /* Adjusts spacing above and below the names */
+    }
+
+    .content {
+        max-width: 600px; /* Limits the content width for better readability */
+        margin: 40px auto; /* Centers the content block horizontally and adds space at the top */
+        padding: 20px; /* Adds padding inside the content area */
+        background-color: #ffffff; /* Sets a white background for the content area */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to lift the content off the page */
+        border-radius: 8px; /* Softens the corners of the content block */
+    }
+
+    footer {
+        text-align: center; /* Centers footer content */
+        padding: 20px 0; /* Adds padding to the top and bottom */
+        font-size: 0.9rem; /* Adjusts the font size for the footer */
+        color: #777; /* Sets the footer text color */
+    }
+</style>
+
+<div class="content">
+    <h1>{% block title %}Welcome to Project YouTube Trends!{% endblock %}</h1>
+    <h5>Khushi Patel (kkp84)</h5>
+    <h5>Cynthia Chen (cc1871)</h5>
+    <!-- Additional content can go here -->
+</div>
+
+<footer>
+    Project YouTube Trends © 2024
+</footer>
+
+{% endblock %}

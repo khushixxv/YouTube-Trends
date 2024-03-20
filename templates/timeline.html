@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Sets the default font for the page */
+        background-color: #f0f0f0; /* Sets a light gray background color for a soft look */
+        margin: 20px; /* Adds some space around the content */
+    }
+    h1 {
+        color: red; /* Change the color of the main title */
+        font-family: Arial, sans-serif; /* Change the font-family */
+    }
+    h5 {
+        color: gray; /* Change the color of the names */
+        font-family: 'Times New Roman', serif; /* Change the font-family */
+        margin-bottom: 0.5em; /* Add some space below the names */
+    }
+    form {
+        text-align: center; /* Center the form on the page */
+        margin-top: 20px; /* Add some space above the form */
+    }
+    select, input[type="submit"] {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Ensures the font matches the body */
+        font-size: 16px; /* Increases the font size for better readability */
+        margin: 10px; /* Adds margin around the elements for spacing */
+        padding: 5px 10px; /* Adds padding inside the elements for a better look */
+    }
+    input[type="submit"] {
+        background-color: red; /* Sets a blue background color for the button */
+        color: white; /* Sets the text color to white */
+        border: none; /* Removes the border */
+        cursor: pointer; /* Changes the cursor to a pointer on hover */
+        border-radius: 5px; /* Rounds the corners of the button */
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Darkens the button on hover for a visual feedback */
+    }
+</style>
+<h1>Timeline</h1>
+<!-- Add content specific to the timeline page here -->
+<!-- DROPDOWN MENU HERE -->
+<form onsubmit="return false;">
+    <label for="country-filter">Filter by country:</label>
+    <select name="country" id="country-filter">
+        <option value="US">US</option>
+        <option value="Canada">Canada</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Russia">Russia</option>
+    </select>
+    <input type="submit" value="Apply Filter">
+</form>
+{{ timeline_html|safe }}
+{% endblock %}
