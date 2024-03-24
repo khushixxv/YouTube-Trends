@@ -3,7 +3,7 @@ import pandas as pd
 import json
 
 # Load the datasets for each country
-df_us = pd.read_csv('../archive/US_youtube_trending_data.csv')  
+df_us = pd.read_csv('../archive/RU_youtube_trending_data.csv')  
 
 df_combined = df_us
 
@@ -14,7 +14,7 @@ df_combined['trending_date'] = pd.to_datetime(df_combined['trending_date'])
 df_combined['year_month'] = df_combined['trending_date'].dt.strftime('%Y-%m')
 
 # Load the category names from the JSON file
-with open('../archive/US_category_id.json', 'r') as file:
+with open('../archive/RU_category_id.json', 'r') as file:
     category_data = json.load(file)
 
 # Create a mapping of category IDs to their names
@@ -38,7 +38,7 @@ df_grouped['percentage'] = (df_grouped['counts'] / df_grouped['total']) * 100
 
 # Now, create the graph with aggregated monthly data
 fig = px.line(df_grouped, x='year_month', y='percentage', color='category_name',
-                title='US Trending Video Categories Over Time',
+                title='Russia Trending Video Categories Over Time',
                 labels={'percentage': 'Popularity Percentage', 'category_name': 'Category', 'year_month': 'Month'})
 
 # Adjust line sizes if needed
@@ -47,5 +47,5 @@ fig.update_traces(line=dict(width=1))
 # Show the figure
 #fig.show()
 # Save as an interactive HTML file named "timeline_US"
-fig.write_html('static/timeline_US.html')
+fig.write_html('static/timeline_RU.html')
 

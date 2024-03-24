@@ -42,14 +42,36 @@
 <!-- DROPDOWN MENU HERE -->
 <form onsubmit="return false;">
     <label for="country-filter">Filter by country:</label>
-    <select name="country" id="country-filter">
-        <option value="US">US</option>
-        <option value="Canada">Canada</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Russia">Russia</option>
+    <select name="country" id="country-filter" onchange="updateIframeSrc()">
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="BR">Brazil</option>
+        <option value="RU">Russia</option>
+        <option value="DE">Germany</option>
+        <option value="FR">France</option>
+        <option value="GB">Great Britain</option>
+        <option value="IN">India</option>
+        <option value="JP">Japan</option>
+        <option value="KR">South Korea</option>
+        <option value="MX">Mexico</option>
     </select>
-    <input type="submit" value="Apply Filter">
 </form>
-<iframe src="{{ url_for('static', filename='timeline_US.html') }}" width="100%" height="600" frameborder="0"></iframe>
+<iframe id="country-iframe" src="" width="100%" height="600" frameborder="0"></iframe>
+
+<script>
+    // Function to update the iframe source based on the selected country
+    function updateIframeSrc() {
+        var selectedCountry = document.getElementById('country-filter').value;
+        var basePath = "{{ url_for('static', filename='') }}"; // Get the base path for static files
+        var filename = 'timeline_' + selectedCountry + '.html'; // Construct the filename based on the selected country
+        document.getElementById('country-iframe').src = basePath + filename; // Update the iframe's src attribute
+    }
+
+    // Initial update on page load to ensure the iframe is loaded with the default selection
+    window.onload = function() {
+        updateIframeSrc(); // Call the update function to set the initial iframe source
+    };
+</script>
+
 
 {% endblock %}
