@@ -50,5 +50,6 @@
     </select>
     <input type="submit" value="Apply Filter">
 </form>
-{{ timeline_html|safe }}
+<iframe src="{{ url_for('static', filename='timeline_US.html') }}" width="100%" height="600" frameborder="0"></iframe>
+
 {% endblock %}

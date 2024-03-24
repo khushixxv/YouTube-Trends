@@ -3,6 +3,9 @@
 {% block content %}
 <h1>Likes vs Views</h1>
 <!-- Add content specific to the scatterplot page here -->
-{{ scatterplot_html|safe }}
 <p>node size: comment count</p>
+
+<!-- Embedding scatterplot_brazil_canada.html as an iframe -->
+<iframe src="{{ url_for('static', filename='scatterplot_allcountries.html') }}" width="100%" height="600" frameborder="0"></iframe>
+
 {% endblock %}
