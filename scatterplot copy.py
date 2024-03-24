@@ -29,19 +29,19 @@ df_mx['trending_date'] = pd.to_datetime(df_mx['trending_date'])
 df_ru['trending_date'] = pd.to_datetime(df_ru['trending_date'])
 df_us['trending_date'] = pd.to_datetime(df_us['trending_date'])
 
-# Filter the DataFrames to only include rows from December 1st of 2023
-df_br = df_br[df_br['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_ca = df_ca[df_ca['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_de = df_de[df_de['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_fr = df_fr[df_fr['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_gb = df_gb[df_gb['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_in = df_in[df_in['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_jp = df_jp[df_jp['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_kr = df_kr[df_kr['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_mx = df_mx[df_mx['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_ru = df_ru[df_ru['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-df_us = df_us[df_us['trending_date'].dt.date == pd.to_datetime('2023-12-01').date()]
-
+selected_month = 12
+# Filter for all of December 2023
+df_br = df_br[(df_br['trending_date'].dt.year == 2023) & (df_br['trending_date'].dt.month == selected_month)]
+df_ca = df_ca[(df_ca['trending_date'].dt.year == 2023) & (df_ca['trending_date'].dt.month == selected_month)]
+df_de = df_de[(df_de['trending_date'].dt.year == 2023) & (df_de['trending_date'].dt.month == selected_month)]
+df_fr = df_fr[(df_fr['trending_date'].dt.year == 2023) & (df_fr['trending_date'].dt.month == selected_month)]
+df_gb = df_gb[(df_gb['trending_date'].dt.year == 2023) & (df_gb['trending_date'].dt.month == selected_month)]
+df_in = df_in[(df_in['trending_date'].dt.year == 2023) & (df_in['trending_date'].dt.month == selected_month)]
+df_jp = df_jp[(df_jp['trending_date'].dt.year == 2023) & (df_jp['trending_date'].dt.month == selected_month)]
+df_kr = df_kr[(df_kr['trending_date'].dt.year == 2023) & (df_kr['trending_date'].dt.month == selected_month)]
+df_mx = df_mx[(df_mx['trending_date'].dt.year == 2023) & (df_mx['trending_date'].dt.month == selected_month)]
+df_ru = df_ru[(df_ru['trending_date'].dt.year == 2023) & (df_ru['trending_date'].dt.month == selected_month)]
+df_us = df_us[(df_us['trending_date'].dt.year == 2023) & (df_us['trending_date'].dt.month == selected_month)]
 
 # Add a column to distinguish the countries
 df_br['Country'] = 'Brazil'
@@ -73,18 +73,27 @@ color_map = {
     'United States': 'darkblue'
 }
 # Create the scatter plot with 'comment_count' determining the size of the markers
+import plotly.express as px
+import pandas as pd
+
+# Assuming df_combined and color_map are defined elsewhere in your code
+
 fig = px.scatter(df_combined, x='view_count', y='likes', color='Country', size='comment_count',
-                title='YouTube Trending Videos: View Count vs Likes by Country',
+                title='December 2023 Trending Videos: View Count vs Likes by Country',
                 labels={'view_count': 'View Count (Millions)', 'likes': 'Likes (Millions)', 'comment_count': 'Comment Count'},
                 opacity=0.6,  # Adjust opacity here
                 color_discrete_map=color_map, 
                 log_x=True,
                 log_y=True)
-# Show the figure
-#fig.show()
+
+# Remove the white border from each node
+fig.update_traces(marker=dict(line=dict(width=0)))
+
+fig.show()
+
 
 
 # Save as an interactive HTML file named "scatterplot_brazil_canada.html"
-fig.write_html('scatterplot_allcountries.html')
+fig.write_html('static/scatterplot_december.html')
 
 
