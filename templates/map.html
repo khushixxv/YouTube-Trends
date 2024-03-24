@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Map of most viewed videos</h1>
+<!-- Add content specific to the scatterplot page here -->
+
+<!-- Embedding scatterplot_brazil_canada.html as an iframe -->
+<iframe src="{{ url_for('static', filename='map.html') }}" width="100%" height="600" frameborder="0"></iframe>
+
+{% endblock %}
