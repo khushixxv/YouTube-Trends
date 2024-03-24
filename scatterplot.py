@@ -3,8 +3,8 @@ import pandas as pd
 
 def generate_scatterplot(): 
     # Load the datasets for each country
-    df_br = pd.read_csv('archive/BR_youtube_trending_data.csv')  # Brazil
-    df_ca = pd.read_csv('archive/CA_youtube_trending_data.csv')  # Canada
+    df_br = pd.read_csv('../archive/BR_youtube_trending_data.csv')  # Brazil
+    df_ca = pd.read_csv('../archive/CA_youtube_trending_data.csv')  # Canada
     """ df_de = pd.read_csv('archive/DE_youtube_trending_data.csv')  # Germany
     df_fr = pd.read_csv('archive/FR_youtube_trending_data.csv')  # France
     df_gb = pd.read_csv('archive/GB_youtube_trending_data.csv')  # Great Britain

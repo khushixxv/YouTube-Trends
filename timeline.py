@@ -4,7 +4,7 @@ import json
 
 def generate_timeline():
     # Load the datasets for each country
-    df_us = pd.read_csv('archive/BR_youtube_trending_data.csv')  
+    df_us = pd.read_csv('../archive/US_youtube_trending_data.csv')  
 
     df_combined = df_us
 
@@ -15,7 +15,7 @@ def generate_timeline():
     df_combined['year_month'] = df_combined['trending_date'].dt.strftime('%Y-%m')
 
     # Load the category names from the JSON file
-    with open('archive/US_category_id.json', 'r') as file:
+    with open('../archive/US_category_id.json', 'r') as file:
         category_data = json.load(file)
 
     # Create a mapping of category IDs to their names
@@ -39,7 +39,7 @@ def generate_timeline():
 
     # Now, create the graph with aggregated monthly data
     fig = px.line(df_grouped, x='year_month', y='percentage', color='category_name',
-                  title='Brazil Trending Video Categories Over Time',
+                  title='US Trending Video Categories Over Time',
                   labels={'percentage': 'Popularity Percentage', 'category_name': 'Category', 'year_month': 'Month'})
 
     # Adjust line sizes if needed
