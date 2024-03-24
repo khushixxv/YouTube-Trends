@@ -12,8 +12,11 @@ def timeline():
 
 @app.route('/scatterplot')
 def scatterplot():
-    
     return render_template('scatterplot.html')
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
