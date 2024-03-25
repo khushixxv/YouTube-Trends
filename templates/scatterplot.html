@@ -43,7 +43,7 @@
 
 <h1>Likes vs Views</h1>
 
-<label for="month-select">Choose a month:</label>
+<!-- <label for="month-select">Choose a month:</label>
 <select id="month-select" onchange="updateIframeSrc()">
     <option value="january">January</option>
     <option value="february">February</option>
@@ -57,18 +57,18 @@
     <option value="october">October</option>
     <option value="november">November</option>
     <option value="december" selected>December</option>
-</select>
+</select> -->
 
 <!-- Embedding scatterplot_month.html as an iframe -->
-<iframe id="scatterplot-iframe" src="{{ url_for('static', filename='scatterplot_december.html') }}" width="100%" height="600" frameborder="0"></iframe>
+<iframe id="scatterplot-iframe" src="{{ url_for('static', filename='scatterplot.html') }}" width="100%" height="600" frameborder="0"></iframe>
 <!-- Add content specific to the scatterplot page here -->
 <p>node size: comment count</p>
-<script>
+<!-- <script>
 function updateIframeSrc() {
     var selectedMonth = document.getElementById('month-select').value;
     var newSrc = "{{ url_for('static', filename='scatterplot_') }}" + selectedMonth + ".html";
     document.getElementById('scatterplot-iframe').src = newSrc;
 }
-</script>
+</script> -->
 
 {% endblock %}
