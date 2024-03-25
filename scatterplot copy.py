@@ -17,17 +17,17 @@ df_us = pd.read_csv('../archive/US_youtube_trending_data.csv')  # United States
 
 #only take data from december 2023
 # Explicitly convert the 'trending_date' column to datetime
-df_br['trending_date'] = pd.to_datetime(df_br['trending_date']).dt.date
-df_ca['trending_date'] = pd.to_datetime(df_ca['trending_date']).dt.date
-df_de['trending_date'] = pd.to_datetime(df_de['trending_date']).dt.date
-df_fr['trending_date'] = pd.to_datetime(df_fr['trending_date']).dt.date
-df_gb['trending_date'] = pd.to_datetime(df_gb['trending_date']).dt.date
-df_in['trending_date'] = pd.to_datetime(df_in['trending_date']).dt.date
-df_jp['trending_date'] = pd.to_datetime(df_jp['trending_date']).dt.date
-df_kr['trending_date'] = pd.to_datetime(df_kr['trending_date']).dt.date
-df_mx['trending_date'] = pd.to_datetime(df_mx['trending_date']).dt.date
-df_ru['trending_date'] = pd.to_datetime(df_ru['trending_date']).dt.date
-df_us['trending_date'] = pd.to_datetime(df_us['trending_date']).dt.date
+# df_br['trending_date'] = f'{pd.to_datetime(df_br['trending_date']).dt.year}-{pd.to_datetime(df_br['trending_date']).dt.month}'
+# df_ca['trending_date'] = f'{pd.to_datetime(df_ca['trending_date']).dt.year}-{pd.to_datetime(df_br['trending_date']).dt.month}'
+# df_de['trending_date'] = pd.to_datetime(df_de['trending_date']).dt.date
+# df_fr['trending_date'] = pd.to_datetime(df_fr['trending_date']).dt.date
+# df_gb['trending_date'] = pd.to_datetime(df_gb['trending_date']).dt.date
+# df_in['trending_date'] = pd.to_datetime(df_in['trending_date']).dt.date
+# df_jp['trending_date'] = pd.to_datetime(df_jp['trending_date']).dt.date
+# df_kr['trending_date'] = pd.to_datetime(df_kr['trending_date']).dt.date
+# df_mx['trending_date'] = pd.to_datetime(df_mx['trending_date']).dt.date
+# df_ru['trending_date'] = pd.to_datetime(df_ru['trending_date']).dt.date
+# df_us['trending_date'] = pd.to_datetime(df_us['trending_date']).dt.date
 
 # selected_month = 12
 # # Filter for all of December 2023
@@ -57,6 +57,10 @@ df_ru['Country'] = 'Russia'
 df_us['Country'] = 'United States'
 # Concatenate all the DataFrames
 df_combined = pd.concat([df_br, df_ca, df_de, df_fr, df_gb, df_in, df_jp, df_kr, df_mx, df_ru, df_us])
+# get year/month
+df_combined['trending_date'] = pd.to_datetime(df_combined['trending_date'])
+df_combined = df_combined[df_combined['trending_date'].dt.year == 2023]
+df_combined['trending_date'] = df_combined['trending_date'].dt.month
 
 # Custom color map for countries
 color_map = {
@@ -79,7 +83,7 @@ import pandas as pd
 # Assuming df_combined and color_map are defined elsewhere in your code
 
 fig = px.scatter(df_combined, x='view_count', y='likes', color='Country', size='comment_count',
-                title='December 2023 Trending Videos: View Count vs Likes by Country',
+                title='2023 Trending Videos: View Count vs Likes by Country',
                 labels={'view_count': 'View Count (Millions)', 'likes': 'Likes (Millions)', 'comment_count': 'Comment Count'},
                 opacity=0.6,  # Adjust opacity here
                 color_discrete_map=color_map, 
@@ -90,7 +94,7 @@ fig = px.scatter(df_combined, x='view_count', y='likes', color='Country', size='
 # Remove the white border from each node
 fig.update_traces(marker=dict(line=dict(width=0)))
 
-# fig.show()
+fig.show()
 
 
 
