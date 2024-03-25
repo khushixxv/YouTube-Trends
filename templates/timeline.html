@@ -96,7 +96,7 @@
         <script>
             // Function to update the iframe source based on the selected country
             function updateIframeSrc2() {
-                var selectedCountry = document.getElementById('country-filter1').value;
+                var selectedCountry = document.getElementById('country-filter2').value;
                 var basePath = "{{ url_for('static', filename='') }}"; // Get the base path for static files
                 var filename = 'timeline_' + selectedCountry + '.html'; // Construct the filename based on the selected country
                 document.getElementById('country-iframe2').src = basePath + filename; // Update the iframe's src attribute
