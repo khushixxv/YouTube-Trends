@@ -6,22 +6,21 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/timeline')
-def timeline():
-    return render_template('timeline.html')
+@app.route('/trendComparison')
+def trendComparison():
+    return render_template('trendComparison.html')
 
-@app.route('/scatterplot')
-def scatterplot():
-    return render_template('scatterplot.html')
+@app.route('/engagementRecap')
+def engagementRecap():
+    return render_template('engagementRecap.html')
 
-@app.route('/map')
-def map():
-    return render_template('map.html')
+@app.route('/globalView')
+def globalView():
+    return render_template('globalView.html')
 
-
-@app.route('/channelgrowth')
-def channelgrowth():
-    return render_template('channelgrowth.html')
+@app.route('/channelInsight')
+def channelInsight():
+    return render_template('channelInsight.html')
 
 
 if __name__ == '__main__':
