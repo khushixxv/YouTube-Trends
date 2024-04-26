@@ -4,15 +4,37 @@
 
 <style>
     body {
-        background-color: #db3030; /* Sets a light background color for the entire page */
+        background-color: #db3030; /* Sets a vibrant background color for the entire page */
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Updates the font for the whole page */
     }
 
+    .header {
+        font-size: 20px;
+        color: #000; /* Black color for header text */
+        text-transform: uppercase; /* Uppercase text for a stylized header */
+        letter-spacing: 3px; /* Added letter-spacing */
+        word-spacing: 2px; /* Improved word spacing */
+        font-weight: bold;
+        border-bottom: 3px solid #000; /* Black border for underline */
+        padding-bottom: 10px;
+        margin-bottom: 40px; /* Added margin for spacing */
+        text-align: center; /* Centers the header */
+    }
+
     h1 {
-        color: red; /* Updates the main title color to a deep pink for more vibrance */
+        color: red; /* Maintains the main title color as red for vibrance */
         font-family: 'Arial', sans-serif; /* Ensures consistency in typography */
         text-align: center; /* Centers the title */
         margin-top: 2rem; /* Adds space at the top of the title */
+    }
+
+    .content, .about-content {
+        max-width: 600px; /* Limits the content width for better readability */
+        margin: 40px auto; /* Centers the content block horizontally and adds space at the top */
+        padding: 20px; /* Adds padding inside the content area */
+        background-color: #ffffff; /* Sets a white background for the content area */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to lift the content off the page */
+        border-radius: 8px; /* Softens the corners of the content block */
     }
 
     h5 {
@@ -22,13 +44,20 @@
         margin: 10px 0; /* Adjusts spacing above and below the names */
     }
 
-    .content {
-        max-width: 600px; /* Limits the content width for better readability */
-        margin: 40px auto; /* Centers the content block horizontally and adds space at the top */
-        padding: 20px; /* Adds padding inside the content area */
-        background-color: #ffffff; /* Sets a white background for the content area */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to lift the content off the page */
-        border-radius: 8px; /* Softens the corners of the content block */
+    h3 {
+        color: #606770; /* Updates the color to a softer gray */
+        font-family: 'Times New Roman', serif; /* Maintains the font style */
+        text-align: center; /* Centers the names */
+        margin: 5px 0; /* Adjusts spacing above and below the names */
+    }
+
+    .about-content {
+        text-align: justify; /* Justify aligns the text for better readability */
+        line-height: 1.6; /* Increased line height for better readability */
+        margin-bottom: 20px; /* Spacing between paragraphs */
+        margin-top: 0px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     footer {
@@ -36,14 +65,24 @@
         padding: 20px 0; /* Adds padding to the top and bottom */
         font-size: 0.9rem; /* Adjusts the font size for the footer */
         color: black; /* Sets the footer text color */
+        border-top: 1px solid #eaeaea; /* Adds a border to the top of the footer */
     }
 </style>
 
+
 <div class="content">
-    <h1>{% block title %}Welcome to Project YouTube Trends!{% endblock %}</h1>
+    <h1>Welcome to Project: YouTube Trends!</h1>
     <h5>Khushi Patel (kkp84)</h5>
     <h5>Cynthia Chen (cc1871)</h5>
     <!-- Additional content can go here -->
+</div>
+
+
+<div class="about-content">
+    <h3>About</h3>
+    <p>Our project, YouTube Trends, aims to look at a dataset containing the top 200 YouTube videos daily in 11 different countries. By utilizing our data visualizations, both consumers and creators will be able to use this data to have a deeper understanding of how trends grow and spread on YouTube, and how to manipulate these trends.</p>
+    <p>We aim to visualize popular social media trends across time and location, show how trends change over the months, and how trends are different across countries. The project will demonstrate popular YouTube categories that receive the most attention, and people can utilize this to grow their own channels' viewer count. They will be able to understand what kinds of trends are impactful and which ones are just fads.</p>
+    <p>By looking at the rate of change and spread of different trends can give valuable insights for on what trends should be paid attention to.</p>
 </div>
 
 <footer>
