@@ -18,9 +18,6 @@ def scatterplot():
 def map():
     return render_template('map.html')
 
-@app.route('/trendlifecycle')
-def trendlifecycle():
-    return render_template('trendlifecycle.html')
 
 @app.route('/channelgrowth')
 def channelgrowth():
