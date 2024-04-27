@@ -39,11 +39,116 @@
     input[type="submit"]:hover {
         background-color: #0056b3; /* Darkens the button on hover for a visual feedback */
     }
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: red;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #dddfe2;
+    }
+    td {
+        font-size: 16px;
+    }
+    @media (max-width: 768px) {
+        table {
+            width: 95%;
+        }
+    }
 </style>
 <h1>Countries and their most viewed videos</h1>
 <!-- Add content specific to the scatterplot page here -->
 
 <!-- Embedding scatterplot_brazil_canada.html as an iframe -->
 <iframe src="{{ url_for('static', filename='map.html') }}" width="100%" height="600" frameborder="0"></iframe>
-
+<body>
+    <h2 style="text-align:center; padding-top: 20px;">Top Trending Videos by Country</h2>
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>Video Title</th>
+            <th>Channel</th>
+        </tr>
+        <tr>
+            <td>Brazil</td>
+            <td>BTS (방탄소년단) 'Butter' Official MV</td>
+            <td>HYBE LABELS</td>
+        </tr>
+        <tr>
+            <td>Canada</td>
+            <td>BTS (방탄소년단) 'Butter' Official MV</td>
+            <td>HYBE LABELS</td>
+        </tr>
+        <tr>
+            <td>Germany</td>
+            <td>BTS (방탄소년단) 'Dynamite' Official MV</td>
+            <td>Big Hit Labels</td>
+        </tr>
+        <tr>
+            <td>France</td>
+            <td>BTS (방탄소년단) 'Dynamite' Official MV</td>
+            <td>Big Hit Labels</td>
+        </tr>
+        <tr>
+            <td>Great Britain</td>
+            <td>BTS (방탄소년단) 'Dynamite' Official MV</td>
+            <td>Big Hit Labels</td>
+        </tr>
+        <tr>
+            <td>India</td>
+            <td>BTS (방탄소년단) 'Butter' Official MV</td>
+            <td>HYBE LABELS</td>
+        </tr>
+        <tr>
+            <td>Japan</td>
+            <td>BTS (방탄소년단) 'Butter' Official MV</td>
+            <td>HYBE LABELS</td>
+        </tr>
+        <tr>
+            <td>South Korea</td>
+            <td>BTS (방탄소년단) 'Butter' Official MV</td>
+            <td>HYBE LABELS</td>
+        </tr>
+        <tr>
+            <td>Mexico</td>
+            <td>BTS (방탄소년단) 'Butter' Official MV</td>
+            <td>HYBE LABELS</td>
+        </tr>
+        <tr>
+            <td>Russia</td>
+            <td>BTS (방탄소년단) 'Dynamite' Official MV</td>
+            <td>Big Hit Labels</td>
+        </tr>
+        <tr>
+            <td>United States</td>
+            <td>BLACKPINK - ‘Pink Venom’ M/V</td>
+            <td>BLACKPINK</td>
+        </tr>
+    </table>
+</body>
 {% endblock %}
