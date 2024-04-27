@@ -42,7 +42,7 @@
 </style>
 
 <h1>Likes vs Views</h1>
-
+<!-- 
 <label for="month-select">Choose a month:</label>
 <select id="month-select" onchange="updateIframeSrc()">
     <option value="january">January</option>
@@ -59,9 +59,9 @@
     <option value="december" selected>December</option>
 </select>
 
-<!-- Embedding scatterplot_month.html as an iframe -->
+<!-- Embedding scatterplot_month.html as an iframe 
 <iframe id="scatterplot-iframe" src="{{ url_for('static', filename='scatterplot_december.html') }}" width="100%" height="600" frameborder="0"></iframe>
-<!-- Add content specific to the scatterplot page here -->
+<!-- Add content specific to the scatterplot page here
 <p>node size: comment count</p>
 <script>
 function updateIframeSrc() {
@@ -70,9 +70,28 @@ function updateIframeSrc() {
     document.getElementById('scatterplot-iframe').src = newSrc;
 }
 </script>
+ -->
+<!-- Embedding scatterplot_animated.html as an iframe -->
+<iframe id="scatterplot-iframe" src="{{ url_for('static', filename='scatterplot.html') }}" width="100%" height="600" frameborder="0"></iframe>
+
+<h1>Life Cycle</h1>
+
+<label for="feature-select">Feature</label> 
+<select id="feature-select" onchange="updateIframeLifecycle()">
+    <option value="views" selected>Views</option>
+    <option value="comments">Comments</option>
+</select>
 
 <!-- Embedding lifecycle.html as an iframe -->
-<iframe id="-iframe" src="{{ url_for('static', filename='lifecycle.html') }}" width="100%" height="600" frameborder="0"></iframe>
+<iframe id="lifecycle-iframe" src="{{ url_for('static', filename='lifecycle_views.html') }}" width="100%" height="600" frameborder="0"></iframe>
 
+<script>
+    function updateIframeLifecycle() {
+        var feature = document.getElementById('feature-select').value;
+        var newSrc2 = "{{ url_for('static', filename='lifecycle_') }}" + feature + ".html";
+        document.getElementById('lifecycle-iframe').src = newSrc2;
+        console.log("switch view", feature)
+    }
+</script>
 
 {% endblock %}
